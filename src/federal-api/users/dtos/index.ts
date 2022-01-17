@@ -1,6 +1,6 @@
 export * from './class.dto';
 export * from './get-user.dto';
-export * from './get-user-schools.dto';
+export * from './user-schools-assignments.dto';
 export * from './guardian.dto';
 export * from './guardian-user.dto';
 export * from './school.dto';
