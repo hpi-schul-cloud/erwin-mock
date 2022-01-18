@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { GetUserDto, UserSchoolsAssignmentsDto, SchoolDto, SexDto, ClassDto } from './dtos';
+import { UserDto, UserSchoolAssignmentDto, SchoolDto, SexDto } from './dtos';
 
 const mockSchools: SchoolDto[] = [
     {
@@ -20,22 +20,32 @@ const mockSchools: SchoolDto[] = [
     },
 ];
 
-const mockUserSchools: UserSchoolsAssignmentsDto[] = [
+const mockUserSchools: UserSchoolAssignmentDto[] = [
     { school: mockSchools[0], role: 'student', start: new Date('2012-08-01'), end: new Date('2022-07-31') },
     { school: mockSchools[0], role: 'student', start: new Date('2011-03-01'), end: new Date('2017-07-31') },
     { school: mockSchools[0], role: 'teacher', start: new Date('1982-08-01'), end: new Date('2027-07-31') },
     { school: mockSchools[1], role: 'student', start: new Date('2009-08-01'), end: new Date('2020-07-31') },
     { school: mockSchools[1], role: 'teacher', start: new Date('1985-01-01'), end: new Date('2029-12-31') },
-    { school: mockSchools[1], role: 'class-representative', start: new Date('2022-01-01'), end: new Date('2023-01-01') },
+    {
+        school: mockSchools[1],
+        role: 'class-representative',
+        start: new Date('2022-01-01'),
+        end: new Date('2023-01-01'),
+    },
     { school: mockSchools[2], role: 'student', start: new Date('2022-05-01'), end: new Date('2025-04-30') },
     { school: mockSchools[2], role: 'student', start: new Date('2022-05-01'), end: new Date('2026-04-30') },
     { school: mockSchools[2], role: 'teacher', start: new Date('2015-01-01'), end: new Date('2055-01-01') },
     { school: mockSchools[3], role: 'student', start: new Date('2022-08-01'), end: new Date('2026-07-31') },
     { school: mockSchools[3], role: 'teacher', start: new Date('2000-09-30'), end: new Date('2025-08-01') },
-    { school: mockSchools[3], role: 'guardian-representative', start: new Date('2020-07-08'), end: new Date('2030-12-31') },
+    {
+        school: mockSchools[3],
+        role: 'guardian-representative',
+        start: new Date('2020-07-08'),
+        end: new Date('2030-12-31'),
+    },
 ];
 
-const mockUsers: GetUserDto[] = [
+const mockUsers: UserDto[] = [
     {
         id: '4dfb0d08-5a25-4092-8b5f-bf1e1cadfd70',
         studentId: '513-06-9822',
@@ -179,27 +189,19 @@ const mockUsers: GetUserDto[] = [
     },
 ];*/
 
-const mockUsersSchoolsMap = new Map<string, UserSchoolsAssignmentsDto[]>();
-mockUsersSchoolsMap.set(mockUsers[0].id, [mockUserSchools[0]]);
-mockUsersSchoolsMap.set(mockUsers[1].id, [mockUserSchools[1]]);
-mockUsersSchoolsMap.set(mockUsers[2].id, [mockUserSchools[2]]);
-mockUsersSchoolsMap.set(mockUsers[3].id, [mockUserSchools[3]]);
-mockUsersSchoolsMap.set(mockUsers[4].id, [mockUserSchools[4]]);
-mockUsersSchoolsMap.set(mockUsers[5].id, [mockUserSchools[5]]);
-mockUsersSchoolsMap.set(mockUsers[6].id, [mockUserSchools[6]]);
-mockUsersSchoolsMap.set(mockUsers[7].id, [mockUserSchools[7]]);
-mockUsersSchoolsMap.set(mockUsers[8].id, [mockUserSchools[8]]);
-mockUsersSchoolsMap.set(mockUsers[9].id, [mockUserSchools[9]]);
-mockUsersSchoolsMap.set(mockUsers[10].id, [mockUserSchools[10]]);
-mockUsersSchoolsMap.set(mockUsers[11].id, [mockUserSchools[11]]);
+const mockUsersSchoolsMap = new Map<string, UserSchoolAssignmentDto[]>();
+
+for (let i = 0; i < mockUsers.length; i++) {
+    mockUsersSchoolsMap.set(mockUsers[i].id, [mockUserSchools[i]]);
+}
 
 @Injectable()
 export class UsersService {
-    public async getUsers(): Promise<GetUserDto[]> {
+    public async getUsers(): Promise<UserDto[]> {
         return mockUsers;
     }
 
-    public async getUser(id: string): Promise<GetUserDto> {
+    public async getUser(id: string): Promise<UserDto> {
         const ret = mockUsers.find((e) => e.id === id);
         if (ret) {
             return ret;
@@ -208,7 +210,7 @@ export class UsersService {
         }
     }
 
-    public async getUserSchools(id: string): Promise<Array<UserSchoolsAssignmentsDto>> {
+    public async getUserSchools(id: string): Promise<Array<UserSchoolAssignmentDto>> {
         const ret = mockUsersSchoolsMap.get(id);
         if (ret) {
             return ret;

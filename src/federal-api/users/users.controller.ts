@@ -1,6 +1,6 @@
 import { Controller, Get, HttpException, HttpStatus, Param } from '@nestjs/common';
 import { ApiProduces, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { GetUserDto, GetUserSchoolsDto } from './dtos';
+import { UserDto, UserSchoolAssignmentDto } from './dtos';
 import { UsersService } from './users.service';
 
 @Controller('/api/users')
@@ -13,9 +13,9 @@ export class UsersController {
     @ApiResponse({
         status: 200,
         description: 'Returns all associated user data.',
-        type: GetUserDto,
+        type: UserDto,
     })
-    public async getUsers(): Promise<GetUserDto[]> {
+    public async getUsers(): Promise<UserDto[]> {
         return await this.service.getUsers();
     }
 
@@ -23,10 +23,10 @@ export class UsersController {
     @ApiResponse({
         status: 200,
         description: 'Returns associated user data.',
-        type: GetUserDto,
+        type: UserDto,
     })
     @ApiResponse({ status: 404, description: 'User not found.' })
-    public async getUser(@Param('id') id: string): Promise<GetUserDto> {
+    public async getUser(@Param('id') id: string): Promise<UserDto> {
         try {
             return await this.service.getUser(id);
         } catch (err) {
@@ -38,10 +38,10 @@ export class UsersController {
     @ApiResponse({
         status: 200,
         description: 'Returns associated user schools.',
-        type: [GetUserSchoolsDto],
+        type: [UserSchoolAssignmentDto],
     })
     @ApiResponse({ status: 404, description: 'User not found.' })
-    public async getUserSchools(@Param('id') id: string): Promise<Array<GetUserSchoolsDto>> {
+    public async getUserSchools(@Param('id') id: string): Promise<Array<UserSchoolAssignmentDto>> {
         try {
             return await this.service.getUserSchools(id);
         } catch (err) {

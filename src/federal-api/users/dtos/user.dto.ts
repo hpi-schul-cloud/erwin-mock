@@ -1,10 +1,10 @@
 import { ClassDto } from './class.dto';
-import { UserSchoolsAssignmentsDto } from './user-schools-assignments.dto';
+import { UserSchoolAssignmentDto } from './user-school-assignment.dto';
 import { GuardianDto } from './guardian.dto';
 import { SexDto } from './sex.dto';
 import { SubjectDto } from './subject.dto';
 
-export class GetUserDto {
+export class UserDto {
     id: string;
     studentId?: string;
     firstName: string;
@@ -12,7 +12,7 @@ export class GetUserDto {
     preferredName: string;
     dateOfBirth: Date;
     sex: SexDto;
-    schools: Array<UserSchoolsAssignmentsDto>;
+    schools: Array<UserSchoolAssignmentDto>;
     classes?: Array<ClassDto>;
     subjects?: Array<SubjectDto>;
     guardians?: Array<GuardianDto>;
