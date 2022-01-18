@@ -1,6 +1,6 @@
 import { SchoolDto } from './school.dto';
 
-export class GetUserSchoolsDto {
+export class UserSchoolAssignmentDto {
     school: SchoolDto;
     role: string;
     start: Date;
