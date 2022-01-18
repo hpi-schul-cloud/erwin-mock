@@ -21,18 +21,18 @@ const mockSchools: SchoolDto[] = [
 ];
 
 const mockUserSchools: UserSchoolsAssignmentsDto[] = [
-    { school: mockSchools[0], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[0], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[0], role: 'teacher', start: new Date(), end: new Date() },
-    { school: mockSchools[1], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[1], role: 'teacher', start: new Date(), end: new Date() },
-    { school: mockSchools[1], role: 'class-representative', start: new Date(), end: new Date() },
-    { school: mockSchools[2], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[2], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[2], role: 'teacher', start: new Date(), end: new Date() },
-    { school: mockSchools[3], role: 'student', start: new Date(), end: new Date() },
-    { school: mockSchools[3], role: 'teacher', start: new Date(), end: new Date() },
-    { school: mockSchools[3], role: 'guardian-representative', start: new Date(), end: new Date() },
+    { school: mockSchools[0], role: 'student', start: new Date('2012-08-01'), end: new Date('2022-07-31') },
+    { school: mockSchools[0], role: 'student', start: new Date('2011-03-01'), end: new Date('2017-07-31') },
+    { school: mockSchools[0], role: 'teacher', start: new Date('1982-08-01'), end: new Date('2027-07-31') },
+    { school: mockSchools[1], role: 'student', start: new Date('2009-08-01'), end: new Date('2020-07-31') },
+    { school: mockSchools[1], role: 'teacher', start: new Date('1985-01-01'), end: new Date('2029-12-31') },
+    { school: mockSchools[1], role: 'class-representative', start: new Date('2022-01-01'), end: new Date('2023-01-01') },
+    { school: mockSchools[2], role: 'student', start: new Date('2022-05-01'), end: new Date('2025-04-30') },
+    { school: mockSchools[2], role: 'student', start: new Date('2022-05-01'), end: new Date('2026-04-30') },
+    { school: mockSchools[2], role: 'teacher', start: new Date('2015-01-01'), end: new Date('2055-01-01') },
+    { school: mockSchools[3], role: 'student', start: new Date('2022-08-01'), end: new Date('2026-07-31') },
+    { school: mockSchools[3], role: 'teacher', start: new Date('2000-09-30'), end: new Date('2025-08-01') },
+    { school: mockSchools[3], role: 'guardian-representative', start: new Date('2020-07-08'), end: new Date('2030-12-31') },
 ];
 
 const mockUsers: GetUserDto[] = [
