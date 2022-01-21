@@ -16,7 +16,7 @@ export class UsersController {
         type: UserDto,
     })
     public async getUsers(): Promise<UserDto[]> {
-        return await this.service.getUsers();
+        return this.service.getUsers();
     }
 
     @Get(':id')

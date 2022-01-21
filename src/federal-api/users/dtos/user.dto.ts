@@ -5,15 +5,25 @@ import { SexDto } from './sex.dto';
 import { SubjectDto } from './subject.dto';
 
 export class UserDto {
-    id: string;
-    studentId?: string;
-    firstName: string;
-    lastName: string;
-    preferredName: string;
-    dateOfBirth: Date;
-    sex: SexDto;
-    schools: Array<UserSchoolAssignmentDto>;
-    classes?: Array<ClassDto>;
-    subjects?: Array<SubjectDto>;
-    guardians?: Array<GuardianDto>;
+    public id!: string;
+
+    public studentId?: string;
+
+    public firstName!: string;
+
+    public lastName!: string;
+
+    public preferredName!: string;
+
+    public dateOfBirth!: Date;
+
+    public sex!: SexDto;
+
+    public schools!: Array<UserSchoolAssignmentDto>;
+
+    public classes?: Array<ClassDto>;
+
+    public subjects?: Array<SubjectDto>;
+
+    public guardians?: Array<GuardianDto>;
 }

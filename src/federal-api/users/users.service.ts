@@ -54,7 +54,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'rparton',
         sex: SexDto.NONE,
         dateOfBirth: new Date('2005-02-13'),
-        schools: [mockUserSchools[0]],
+        schools: [mockUserSchools[0] ?? {}],
     },
     {
         id: 'a13f1b1a-4dc2-454d-ae8a-855fd956723c',
@@ -112,7 +112,7 @@ const mockUsers: UserDto[] = [
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('2006-04-02'),
         schools: [mockUserSchools[2]],
-        //classes: [mockUserSchools[1]],
+        // classes: [mockUserSchools[1]],
     },
     {
         id: 'c40f541a-22t4-45d7-81a0-0f68142ce66d',
@@ -125,7 +125,7 @@ const mockUsers: UserDto[] = [
         schools: [mockUserSchools[2]],
     },
     {
-        //same id, when teacher has different roles at two different schools?
+        // same id, when teacher has different roles at two different schools?
         id: 'ef2e7d8c-5e10-4077-ae77-6ec086cbf1c4',
         firstName: 'Lisa',
         lastName: 'Klein',
@@ -136,7 +136,7 @@ const mockUsers: UserDto[] = [
     },
     {
         id: 'c54f579b-de32-40f7-62g0-0f68142ce44x',
-        //still has her old studentId
+        // still has her old studentId
         studentId: '123-45-6789',
         firstName: 'Lisa',
         lastName: 'Berger',
@@ -146,7 +146,7 @@ const mockUsers: UserDto[] = [
         schools: [mockUserSchools[3]],
     },
     {
-        //same id, when same teacher is at two different schools?
+        // same id, when same teacher is at two different schools?
         id: '58350a25-0c5e-4ebc-8f2d-ff1728a0d1de',
         firstName: 'Manfred',
         lastName: 'Schmidt',
@@ -166,7 +166,7 @@ const mockUsers: UserDto[] = [
     },
 ];
 
-/*const mockClasses: ClassDto[] = [
+/* const mockClasses: ClassDto[] = [
     {
         id: '1',
         displayName: 'Mathe',
@@ -187,35 +187,37 @@ const mockUsers: UserDto[] = [
         id: '4',
         displayName: 'Deutsch - Leistungskurs',
     },
-];*/
+]; */
 
 const mockUsersSchoolsMap = new Map<string, UserSchoolAssignmentDto[]>();
 
-for (let i = 0; i < mockUsers.length; i++) {
+for (let i = 0; i < mockUsers.length; i += 1) {
     mockUsersSchoolsMap.set(mockUsers[i].id, [mockUserSchools[i]]);
 }
 
 @Injectable()
 export class UsersService {
     public async getUsers(): Promise<UserDto[]> {
-        return mockUsers;
+        return Promise.resolve(mockUsers);
     }
 
     public async getUser(id: string): Promise<UserDto> {
-        const ret = mockUsers.find((e) => e.id === id);
-        if (ret) {
-            return ret;
-        } else {
-            throw Error;
+        const user = mockUsers.find((e) => e.id === id);
+
+        if (user) {
+            return Promise.resolve(user);
         }
+
+        throw new Error();
     }
 
     public async getUserSchools(id: string): Promise<Array<UserSchoolAssignmentDto>> {
-        const ret = mockUsersSchoolsMap.get(id);
-        if (ret) {
-            return ret;
-        } else {
-            throw Error;
+        const userAssignmentsMap = mockUsersSchoolsMap.get(id);
+
+        if (userAssignmentsMap) {
+            return Promise.resolve(userAssignmentsMap);
         }
+
+        throw new Error();
     }
 }

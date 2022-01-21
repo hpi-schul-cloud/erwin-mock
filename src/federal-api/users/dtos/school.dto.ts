@@ -1,4 +1,5 @@
 export class SchoolDto {
-    id: string;
-    displayName: string;
+    public id!: string;
+
+    public displayName!: string;
 }

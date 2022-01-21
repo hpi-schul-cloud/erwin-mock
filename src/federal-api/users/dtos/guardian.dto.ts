@@ -1,7 +1,9 @@
 import { GuardianUserDto } from './guardian-user.dto';
 
 export class GuardianDto {
-    id: string;
-    role: string;
-    user: GuardianUserDto;
+    public id!: string;
+
+    public role!: string;
+
+    public user!: GuardianUserDto;
 }

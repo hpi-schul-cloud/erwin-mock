@@ -1,4 +1,5 @@
 export class SchoolYearDto {
-    id: string;
-    displayName: string;
+    public id!: string;
+
+    public displayName!: string;
 }

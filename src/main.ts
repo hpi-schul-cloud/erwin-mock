@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule);
     const config = new DocumentBuilder()
         .setTitle('ErWin ISLE - Länder API')
@@ -15,4 +15,5 @@ async function bootstrap() {
     SwaggerModule.setup('swagger', app, document);
     await app.listen(3060);
 }
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 bootstrap();

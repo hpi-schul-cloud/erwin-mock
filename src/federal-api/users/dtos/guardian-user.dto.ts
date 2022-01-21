@@ -1,5 +1,7 @@
 export class GuardianUserDto {
-    id: string;
-    firstName: string;
-    lastName: string;
+    public id!: string;
+
+    public firstName!: string;
+
+    public lastName!: string;
 }
