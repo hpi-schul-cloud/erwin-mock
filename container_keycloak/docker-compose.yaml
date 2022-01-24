@@ -1,0 +1,42 @@
+version: '3'
+
+volumes:
+  mysql_data:
+      driver: local
+
+services:
+  mariadb:
+      image: mariadb
+      volumes:
+        - mysql_data:/var/lib/mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: keycloak
+        MYSQL_USER: keycloak
+        MYSQL_PASSWORD: password
+  keycloak:
+      image: quay.io/keycloak/keycloak:15.0.2
+      environment:
+        DB_VENDOR: mariadb
+        DB_ADDR: mariadb
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_PASSWORD: password
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+      volumes:
+        - ./TestRealm-realm.json:/tmp/kc/TestRealm-realm.json
+        - ./TestRealm-users-0.json:/tmp/kc/TestRealm-users-0.json
+      command:
+        [
+            '-b',
+            '0.0.0.0',
+            '-Dkeycloak.migration.action=import',
+            '-Dkeycloak.migration.provider=dir',
+            '-Dkeycloak.migration.dir=/tmp/kc',
+            '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING',
+        ]
+      ports:
+        - 8080:8080
+      depends_on:
+        - mariadb
