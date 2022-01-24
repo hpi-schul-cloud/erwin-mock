@@ -64,7 +64,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'fcastelyn',
         sex: SexDto.NONE,
         dateOfBirth: new Date('2000-02-28'),
-        schools: [mockUserSchools[0]],
+        schools: [mockUserSchools[1]],
     },
     {
         id: '7b85d42f-1b1a-874h-av8a-855fd963823c',
@@ -73,7 +73,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'erika.rein',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('1962-11-07'),
-        schools: [mockUserSchools[0]],
+        schools: [mockUserSchools[2]],
     },
     {
         id: 'c40f541a-0e83-45d7-81a0-0f68142ce66d',
@@ -83,7 +83,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'irawlinson',
         sex: SexDto.NONE,
         dateOfBirth: new Date('2002-12-09'),
-        schools: [mockUserSchools[1]],
+        schools: [mockUserSchools[3]],
     },
     {
         id: '58350a25-0c5e-4ebc-8f2d-ff1728a0d1de',
@@ -92,7 +92,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'manfred.schmidt',
         sex: SexDto.MALE,
         dateOfBirth: new Date('1960-08-02'),
-        schools: [mockUserSchools[1]],
+        schools: [mockUserSchools[4]],
     },
     {
         id: 'ef2e7d8c-5e10-4077-ae77-6ec086cbf1c4',
@@ -101,7 +101,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'li.klein',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('1990-09-13'),
-        schools: [mockUserSchools[1]],
+        schools: [mockUserSchools[5]],
     },
     {
         id: 'r40g641a-0e83-45d7-9h72-0f68142ce66d',
@@ -111,7 +111,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'amueller',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('2006-04-02'),
-        schools: [mockUserSchools[2]],
+        schools: [mockUserSchools[6]],
         // classes: [mockUserSchools[1]],
     },
     {
@@ -122,7 +122,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'anmueller',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('2006-04-02'),
-        schools: [mockUserSchools[2]],
+        schools: [mockUserSchools[7]],
     },
     {
         // same id, when teacher has different roles at two different schools?
@@ -132,7 +132,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'li.klein',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('1990-09-13'),
-        schools: [mockUserSchools[2]],
+        schools: [mockUserSchools[8]],
     },
     {
         id: 'c54f579b-de32-40f7-62g0-0f68142ce44x',
@@ -143,7 +143,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'liberger',
         sex: SexDto.FEMALE,
         dateOfBirth: new Date('2015-01-29'),
-        schools: [mockUserSchools[3]],
+        schools: [mockUserSchools[9]],
     },
     {
         // same id, when same teacher is at two different schools?
@@ -153,7 +153,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'manfred.schmidt',
         sex: SexDto.MALE,
         dateOfBirth: new Date('1960-08-02'),
-        schools: [mockUserSchools[3]],
+        schools: [mockUserSchools[10]],
     },
     {
         id: '25a934d5-236d-4fa5-bb34-0ecf3b1ea0c5',
@@ -162,7 +162,7 @@ const mockUsers: UserDto[] = [
         preferredName: 'amckinney',
         sex: SexDto.DIVERSE,
         dateOfBirth: new Date('1980-10-08'),
-        schools: [mockUserSchools[3]],
+        schools: [mockUserSchools[11]],
     },
 ];
 
